@@ -4,10 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program 3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        .back-btn{
+
+    body{
+    font-family: Arial, sans-serif;
+    background-color: #8ac79f;
+    }    
+
+    .guess-game{
+        text-align: center;
+    }
+    h1{
+        padding-top:30px;
+        padding-bottom:25px;
+        color: rgb(41, 8, 87);
+        font-size: 24px;
+        margin:0 auto;
+    }
+
+    .container{
+        height: 100%;
+        padding:20px;
+        margin:auto;
+        background-color: rgb(95, 124, 180);
+        text-align: center;
+        margin-top:20px;
+        border-radius: 40px;
+    }
+
+    .box{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .box label{
+        font-size: 22px;
+        color:rgb(255, 255, 255);
+    }
+
+    .input{
+        padding:10px;
+        margin:10px;
+    }
+
+    .btn1{
+        cursor:pointer;
+        background-color: #49d77b;
+        width: 30%;
+        margin: 10px 120px;
+        transition: transform 0.3 ease;
+        border:none;
+        border-radius: 30px;
+        font-size: 18px;
+    }
+
+    .btn1:hover{
+        background-color: #10682f;
+        transform: scale(1.1);
+    }
+
+    .btn2{
+        cursor:pointer;
+        background-color: #d75a49;
+        width: 30%;
+        margin: 10px 120px;
+        transition: transform 0.3 ease;
+        border:none;
+        border-radius: 30px;
+        font-size: 18px;
+    }
+
+    .btn2:hover{
+        background-color: #c40d06;
+        transform: scale(1.1);
+    }
+
+    .result{
+        background-color: #7eb893;
+        border: solid 3px white;
+        border-radius: 25px;
+        font-size: 24px;
+        margin:20px 10px;
+    }
+
+
+    .back-btn{
     display: inline-block;
-    margin: 15px auto;
+    margin: 35px auto;
     padding: 10px 18px;
     background-color: rgb(150, 140, 130);
     color: white;
@@ -30,10 +115,182 @@
     transform: scale(1.05);
 }
 
+.text{
+    font-size: 8px;
+}
+
+footer {
+  background-color: #05235e; 
+  color: #f1f1f1;        
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  border-radius: 6px;
+}
+
+
+
+footer a {
+  text-decoration: none;
+  color: #f1f1f1;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+footer a i {
+  margin-right: 6px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+footer a:hover {
+  color: #fe0000; 
+}
+
+
+/* =====================
+   Tablet (≥ 600px)
+===================== */
+@media (min-width: 600px) {
+
+  h1{
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size: 28px;
+  }
+
+  .container{
+    width: 70%;
+  }
+
+  .btn1,
+  .btn2{
+    width: 40%;
+    margin: 3px auto;
+  }
+
+  .back-btn{
+    margin: 16px auto;
+  }
+
+  .result{
+    font-size: 18px;
+  }
+}
+
+
+/* =====================
+   Laptop / Desktop (≥ 992px)
+===================== */
+@media (min-width: 992px) {
+
+  body{
+    background-color: #7fbfa0;
+  }
+
+  h1{
+    padding-top:1px;
+    padding-bottom:1px;
+    font-size: 32px;
+  }
+
+  .container{
+    width: 45%;
+    padding: 20px;
+  }
+
+  .box label{
+    font-size: 22px;
+  }
+
+  .input{
+    font-size: 18px;
+  }
+
+  .btn1,
+  .btn2{
+    width: 35%;
+  }
+
+  .result{
+    font-size: 20px;
+  }
+
+  footer{
+    margin-top: 0px;
+  }
+}
+
+
+/* =====================
+   Large Screen / Monitor (≥ 1200px)
+===================== */
+@media (min-width: 1200px) {
+
+  .container{
+    width: 35%;
+  }
+
+  h1{
+    padding-top:1px;
+    padding-bottom:1px;  
+    font-size: 36px;
+  }
+
+  .btn1,
+  .btn2{
+    width: 30%;
+  }
+
+  .result{
+    font-size: 24px;
+  }
+
+}
+
     </style>
 </head>
 <body>
-    <h1>Program 3</h1>
-    <a href="javascript:history.back()" class="back-btn">⬅ Back</a>
+
+   <div class="guess-game">
+    <h1>Program 3: Guess the Number!</h1>
+
+    <div class="container">
+        <div class="box">
+            <label class="input" for="input">Enter Your Guess: </label>
+            <input class="input" type="number" id="input" placeholder="Guess between 1-10">
+            <button class="input btn1" type="submit" id="btn">Submit</button>
+
+            <label for="result" class="box text" id="result">🎮Let’s Play the Game! 😄🕹️
+            </label>
+
+            <div class="result">
+                <div class="attempt">
+                    <p>Number of attempt: <span id="attempt">0</span></p>
+                    <p>Your Score: <span id="score">0</span></p> 
+                </div>
+            </div>
+
+            <button class="input btn2" type="submit" id="reset">Reset</button>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">⬅ Back</a>
+
+    </div>
+    
+
+<footer>
+  <p>&copy; 2026 Mohammad Saif</p>
+  <p>
+    Follow me on 
+    <a href="https://github.com/Ofear3" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </p>
+</footer>
+    
+    <script src="program3.js"></script>
 </body>
 </html>
