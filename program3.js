@@ -4,7 +4,7 @@
 function Game() {  
         let val = Number(document.getElementById("input").value);
         console.log("User Input Value",val);
-        let guess=Math.floor((Math.random() *10)+1);
+        let guess=Math.floor((Math.random() *5)+1);
         // let guess=2;
         console.log("Computer Guess: ",guess);
         attempt++;
